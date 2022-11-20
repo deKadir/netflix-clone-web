@@ -26,11 +26,11 @@ function Row({ title, movies }: Props) {
       <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200  hover:text-white md:text-2xl">
         {title}
       </h2>
-      <div className="group">
+      <div className="group md:-ml-2">
         <ChevronLeftIcon
           className={`${
             !isMoved && 'hidden'
-          } absolute top-0 bottom-0 left-2 z-40 m-auto h-9 cursor-pointer transition hover:scale-125 opacity-0 group-hover:opacity-100`}
+          } absolute top-0 bottom-0 left-2 z-40 m-auto h-9 cursor-pointer  lg:top-10 transition hover:scale-125 opacity-0 group-hover:opacity-100`}
           onClick={handleClick('left')}
         />
         <div className="flex items-center space-x-0.5 overflow-x-scroll  md:space-x-2.5 scrollbar-hide" ref={rowRef}>
@@ -39,7 +39,7 @@ function Row({ title, movies }: Props) {
           ))}
         </div>
         <ChevronRightIcon
-          className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 cursor-pointer hover:scale-125 opacity-0 group-hover:opacity-100"
+          className="absolute top-0 bottom-0 right-2 z-40 m-auto h-9 cursor-pointer lg:top-10  hover:scale-125 opacity-0 group-hover:opacity-100"
           onClick={handleClick('right')}
         />
       </div>
