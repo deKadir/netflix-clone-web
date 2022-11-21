@@ -17,7 +17,7 @@ function Banner({ netflixOriginals }: Props) {
   const [modalMovie, setMovalMovie] = useRecoilState(movieState);
 
   useEffect(() => {
-    if (netflixOriginals.length) {
+    if (netflixOriginals?.length) {
       setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]);
     }
   }, [netflixOriginals]);
