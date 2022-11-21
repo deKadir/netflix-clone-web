@@ -1,10 +1,12 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
 import requests from '../api/requests';
 import { Movie } from '../typings';
 import Row from './../components/Row';
+import { modalState } from './../atoms/modalAtoms';
+import { useRecoilValue } from 'recoil';
+import Modal from './../components/Modal';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -17,7 +19,7 @@ interface Props {
   documentaries: Movie[];
 }
 
-const Home: NextPage = ({
+const Home = ({
   netflixOriginals,
   actionMovies,
   comedyMovies,
@@ -27,6 +29,8 @@ const Home: NextPage = ({
   topRated,
   trendingNow,
 }: Props) => {
+  const showModal = useRecoilValue(modalState);
+
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       {/* Header */}
@@ -49,6 +53,7 @@ const Home: NextPage = ({
           <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} />
         </section>
+        {showModal && <Modal />}
       </main>
     </div>
   );
